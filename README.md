@@ -1,6 +1,6 @@
 Basic dotfiles and scripts for my setup.
 
-***Note:*** All of the dzen scripts are a WIP.
+***Note:*** *All of the dzen scripts are a WIP.*
 
 *Current Screenshot:*
 
