@@ -1,0 +1,40 @@
+mpd_music_dir = "/home/axioen/Music"
+mpd_crossfade_time = "5"
+
+# Visualizer
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_type = "wave" (spectrum/wave)
+visualizer_look = "●▋"
+#visualizer_look = "▋▋"
+
+# Playlist
+#song_columns_list_format = "$L(9)[$0]{l} (20)[$1]{a} (30)[$2]{b}$R(20)[$3]{t}"
+now_playing_prefix = "$b>>" 
+#now_playing_suffix = ""
+playlist_display_mode = "classic" (classic/columns)
+autocenter_mode = "no"
+centered_cursor = "no"
+song_list_format = "$4 $5%a$3 $5-$2 $1%t$1 $R $5%b$1"
+
+# Bars
+statusbar_visibility = "no"
+progressbar_look = "── "
+titles_visibility = "no"
+header_visibility = "no"
+
+# Browser
+browser_playlist_prefix = "$2plist »$3 "
+browser_display_mode = "classic" (classic/columns)
+
+# Colors
+colors_enabled = "yes"
+statusbar_color = "black"
+empty_tag_color = "black"
+main_window_color = "white"
+progressbar_color = "white"
+
+# Others
+song_window_title_format = "MPD: {%a - }{%t}{ [%b{ Disc %d}]}|{%f}"
+search_engine_display_mode = "columns" (classic/columns)
+follow_now_playing_lyrics = "yes"
+execute_on_song_change = "~/mpdnotify/mpdnotify"
