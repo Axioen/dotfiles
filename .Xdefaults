@@ -20,28 +20,10 @@ URxvt*.color14:      #9DA69E
 URxvt*.color7:       #C2C2A8
 URxvt*.color15:      #DBDAC1
 
-#URxvt*.background: #161616
-#URxvt*.foreground: #efefef
-#URxvt*.color0: #777777
-#URxvt*.color8: #616161
-#URxvt*.color1: #efefef
-#URxvt*.color9: #7B93A6
-#URxvt*.color2: #85A999
-#URxvt*.color10: #96B1A9
-#URxvt*.color3: #969696
-#URxvt*.color11: #B7B7B7
-#URxvt*.color4: #758891
-#URxvt*.color12: #90A4A9
-#URxvt*.color5: #A2B4BC
-#URxvt*.color13: #efefef
-#URxvt*.color6: #8CA6A3
-#URxvt*.color14: #8FABA7
-#URxvt*.color7: #A5A5A5
-#URxvt*.color15: #C0C0C0
 
     URxvt*.background: #0e1116
     URxvt*.foreground: #a3a6ab
-		URxvt*..colorUL: #95b9cc
+    URxvt*..colorUL: #95b9cc
 
 # Dark
 
@@ -86,8 +68,5 @@ URxvt*.color15:      #DBDAC1
 #		Xft.lcdfilter:  lcddefault
 #		Xft.hintstyle:  hintfull
 #		Xft.hinting: 1
-#	  Xft.antialias: 1
+#      	  Xft.antialias: 1
 #		Xft.rgba: rgb
-
-
-		dzen2.font: xft:Lemon:pixelsize=8
