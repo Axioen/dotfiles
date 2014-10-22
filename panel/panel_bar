@@ -8,20 +8,7 @@
 num_mon=$(bspc query -M | wc -l)
 
 
-# Colorscheme for mocho
-#BLUE="#FF8AB3B5"
-#RED="#FFCB6077"
-#YELLOW="#FFF4BC87"
-#ORANGE="#FFD28B71"
-#MAGENTA="#FFA89BB9"
-#TEAL="#FF7BBdA4"
-#LIGHTGREY="#FFb8AfAD"
-#DARKGREY="#FF7E705A"
-#GREEN="#FF90A950"
-#BG="#FF3B3228"
-
-
-# Colorscheme for default-dark
+# Colors
 BLUE="#FF6A9FB5"
 RED="#FFAC4142"
 YELLOW="#FF090909"
