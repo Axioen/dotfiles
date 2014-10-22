@@ -1,4 +1,4 @@
-Basic dotfiles and scripts for my shit.
+Basic dotfiles and scripts for my setup.
 
 *Note:* All of the dzen scripts are a WIP.
 
