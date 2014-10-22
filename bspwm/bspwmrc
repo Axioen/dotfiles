@@ -18,7 +18,6 @@ bspc monitor -d     
 #bspc monitor -d ⮘ ⮙ ⮚ 
 
 #feh --bg-fill ~/Pictures/Wallpapers/1412881718523.jpg
-#feh --bg-fill ~/bbrice/book.png
 feh --bg-tile ~/Downloads/greyt.png
 compton -c
 
