@@ -4,4 +4,4 @@ Basic dotfiles and scripts for my setup.
 
 *Current Screenshot:*
 
-![alt tag] (https://github.com/Axioen/dotfiles/blob/master/scrot_2014-10-22-174930_1366x768_scrot.png)
+![alt tag] (https://raw.githubusercontent.com/Axioen/dotfiles/master/scrot_2014-10-22-174930_1366x768_scrot.png)
