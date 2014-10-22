@@ -37,16 +37,13 @@
       
       
      "help" )    echo ""  
-                    echo "KrisKo 2010"   
-                    echo ""  
                     echo "Usage: todo [OPTION]"  
                     echo ""  
-                    echo "Script accepts following options:"  
                     echo "show      show todo list"  
                     echo "add       add entry to todo list"  
-        echo "rem #nr   remove entry from todo list"   
-        echo "down #nr  move entry from todo list to the bottom"   
-        echo "up #nr    move entry from todo list to the top"   
+        echo "rem #  remove entry from todo list"   
+        echo "down # move entry from todo list to the bottom"   
+        echo "up #  move entry from todo list to the top"   
                     echo "";;  
       
      * )   cat $LIST | grep -n "" | sed -e 's/:/: /';;  
