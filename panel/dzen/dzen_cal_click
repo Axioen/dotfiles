@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+if [ "$(isrunning)" == "No" ]
+ then
+$(xdotool mousemove --sync 1310 5)
+$(xdotool click 1)
+
+elif [ "$(isrunning)" == "Yes" ]
+ then
+$(xdotool mousemove --sync 1310 15)
+$(xdotool click 1)
+$(pkill dzen)
+
+fi

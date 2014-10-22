@@ -1,0 +1,9 @@
+#!/bin/bash
+
+xdotool mousemove --sync 1177 5
+xdotool click 1
+sleep 1
+xdotool mousemove_relative --sync 0 15
+xdotool click 1
+xdotool click 1
+xdotool click 1

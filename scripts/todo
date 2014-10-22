@@ -1,0 +1,56 @@
+    #!/bin/bash  
+      
+    LIST=~/bin/todo_list  
+      
+    #specific options need to be tested to prevent errors  
+    if [ "x$1" == "xrem" ] || [ "x$1" == "xdown" ] || [ "x$1" == "xup" ]; then  
+     expr $2 + 1 2>/dev/null 1>2;  
+     #test if return statement from previous command was succesfull   
+     if [ $? -ne 0 ]; then echo Invalid number \'$2\'; exit 0; fi  
+     if [ "x$2" == "x" ] || [ "$2" -le 0 ] || [ "$2" -gt "`cat $LIST | grep -c ""`" ]; then  
+      echo Invalid parameter or incorrect line number. Use \'todo help\' for help.;   
+      exit 1  
+     fi  
+    fi  
+      
+    case "$1" in  
+     "add" )  echo Added: `echo $@ | sed -e 's/add //'`  
+        echo $@ | sed -e 's/add //' >> $LIST;;  
+      
+      "rem" )  echo Removed: `awk NR==$2 $LIST`  
+        sed -i $2d $LIST;;  
+      
+     "down" ) echo Moved: `awk NR==$2 $LIST`  
+        awk NR==$2 $LIST >> $LIST  
+        sed -i $2d $LIST;;  
+      
+     "up" )  echo Moved: `awk NR==$2 $LIST`  
+        awk NR==$2 $LIST >> $LIST  
+        sed -i $2d $LIST  
+        SUM=`cat $LIST | grep -c ""`  
+        i=1  
+        until [ $i -ge $SUM ]; do  
+        awk NR==1 $LIST >> $LIST  
+        sed -i 1d $LIST  
+        i=$(($i+1))  
+        done;;  
+      
+      
+     "help" )    echo ""  
+                    echo "KrisKo 2010"   
+                    echo ""  
+                    echo "Usage: todo [OPTION]"  
+                    echo ""  
+                    echo "Script accepts following options:"  
+                    echo "show      show todo list"  
+                    echo "add       add entry to todo list"  
+        echo "rem #nr   remove entry from todo list"   
+        echo "down #nr  move entry from todo list to the bottom"   
+        echo "up #nr    move entry from todo list to the top"   
+                    echo "";;  
+      
+     * )   cat $LIST | grep -n "" | sed -e 's/:/: /';;  
+      
+    esac  
+      
+    exit 0  

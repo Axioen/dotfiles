@@ -1,0 +1,8 @@
+#!/bin/bash
+LINES=$(pacman -Qu | wc -l)
+LINES=$((LINES - 0.5))
+
+
+(
+pacman -Qu | dzen2 -fn lemon -x 1084 -y 0 -w 200 -h 12 -l $LINES -sa l -p -e 'onstart=uncollapse,hide;button1=exit;' -fg "#909090" -bg "#0e1116" -tw 6
+)

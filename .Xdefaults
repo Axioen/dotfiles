@@ -1,0 +1,93 @@
+# --- Colors ---
+
+#URxvt*.foreground:		#738A8A
+#URxvt*.background:		#181512
+URxvt*.cursorColor:  #CA5E64
+URxvt*.color0:       #3B444F
+URxvt*.color8:       #4A585A
+URxvt*.color1:       #CD546C
+URxvt*.color9:       #EF545F
+URxvt*.color2:       #A5AF86
+URxvt*.color10:      #BDC79E
+URxvt*.color3:       #CD7860
+URxvt*.color11:      #E88773
+URxvt*.color4:       #7A9388
+URxvt*.color12:      #94B1A3
+URxvt*.color5:       #75434C
+URxvt*.color13:      #BB6C73
+URxvt*.color6:       #767D75
+URxvt*.color14:      #9DA69E
+URxvt*.color7:       #C2C2A8
+URxvt*.color15:      #DBDAC1
+
+#URxvt*.background: #161616
+#URxvt*.foreground: #efefef
+#URxvt*.color0: #777777
+#URxvt*.color8: #616161
+#URxvt*.color1: #efefef
+#URxvt*.color9: #7B93A6
+#URxvt*.color2: #85A999
+#URxvt*.color10: #96B1A9
+#URxvt*.color3: #969696
+#URxvt*.color11: #B7B7B7
+#URxvt*.color4: #758891
+#URxvt*.color12: #90A4A9
+#URxvt*.color5: #A2B4BC
+#URxvt*.color13: #efefef
+#URxvt*.color6: #8CA6A3
+#URxvt*.color14: #8FABA7
+#URxvt*.color7: #A5A5A5
+#URxvt*.color15: #C0C0C0
+
+    URxvt*.background: #0e1116
+    URxvt*.foreground: #a3a6ab
+		URxvt*..colorUL: #95b9cc
+
+# Dark
+
+#		URxvt*..color0: #3f3f4c
+#		URxvt*..color1: #ac6a76
+#		URxvt*..color2: #7b8c58
+#		URxvt*..color3: #bc945a
+#		URxvt*..color4: #58698c
+#		URxvt*..color5: #7b5e8d
+#		URxvt*..color6: #82a1b2
+#		URxvt*..color7: #bbbaba
+
+# Light
+
+#		URxvt*..color8: #525263
+#		URxvt*..color9: #c47987
+#		URxvt*..color10: #90a366
+#		URxvt*..color11: #d4a765
+#		URxvt*..color12: #7086b2
+#		URxvt*..color13: #9572ab
+#		URxvt*..color14: #95b9cc
+#		URxvt*..color15: #edeff2
+  
+# --- URxvt*.Settings ---
+
+    URxvt*.internalBorder: 3
+    URxvt*.scrollBar: false
+    URxvt*.perl-ext-common: default,matcher
+    URxvt*.url-launcher: /usr/bin/firefox
+    URxvt*.matcher.button: 1
+#	  URxvt*.font: '-lucy-tewi-medium-r-normal-11-90-75-75-p-58-iso10646-1'
+    URxvt*.font: xft:Tewi:pixelsize=default:antialias=false,-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1
+#   URxvt*.font: xft:Pragmata Pro:pixelsize=13:antialias=true
+    URxvt*.boldFont: xft:Tewi:pixelsize=default:antialias=false
+#   URxvt*.boldFont: xft:Pragmata Pro:pixelsize=13:antialias=false
+#    URxvt*.letterSpace: -1
+
+# --- XFT Settings ---
+
+#		Xft.dpi: 96
+#		Xft.autohint: 0
+#		Xft.lcdfilter:  lcddefault
+#		Xft.hintstyle:  hintfull
+#		Xft.hinting: 1
+#	  Xft.antialias: 1
+#		Xft.rgba: rgb
+
+
+		dzen2.font: xft:Lemon:pixelsize=8

@@ -1,0 +1,142 @@
+#! /bin/bash
+
+if [ $(pgrep -cx panel) -gt 1 ] ; then
+	printf "%s\n" "The panel is already running." >&2
+	exit 1
+fi
+
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+flavor=${1:-bar}
+
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+bspc config top_padding $PANEL_HEIGHT
+
+
+## -- Colors -- ##
+
+BLUE="%{F#FFaaaaaa}"
+RED="%{F#FFAC4142}"
+YELLOW="%{F#FFFF4BF75}"
+ORANGE="%{F#FFD28B71}"
+MAGENTA="%{F#FFAA759F}"
+TEAL="%{F#FFA3a6ab}"
+LIGHTGREY="%{F#FFB0B0B0}"
+DARKGREY="%{F#FF9da69e}"
+GREEN="%{F#FF767d75}"
+PURPLE="%{F#FF9547C9}"
+BG="%{F#FF0e1116}"
+
+bspc control --subscribe > "$PANEL_FIFO" &
+xtitle -sf 'T%s' > "$PANEL_FIFO" &
+echo 'E' $BLUE'⮗ '$DARKGREY'Axioen' $BLUE'' > "$PANEL_FIFO" &
+
+
+
+## -- System Info Items -- ##
+
+panel_sigStrength()
+{
+        signalStrength=$(cat /proc/net/wireless | awk 'NR==3 { print $3}' | sed 's/\.//')
+
+        if [ "$signalStrength" -gt 64 ]
+        then
+                echo ""$BLUE ""
+        elif [ "$signalStrength" -lt 65 ] && [ "$signalStrength" -gt 39 ]
+        then
+                echo ""$BLUE ""$DARKGREY""$BLUE
+        elif [ "$signalStrength" -lt 40 ]
+        then
+                echo ""$BLUE ""$DARKGREY""$BLUE
+        else
+                echo ""$DARKGREY "Not connected"
+        fi
+}
+
+panel_essid()
+{
+	echo $BLUE $(panel_sigStrength) $(essid -w wlp2s0 )
+}
+
+
+panel_pacupdate()
+{
+	echo %{A:dzen_pacman:}$GREEN  $DARKGREY$(pacman -Qu | wc -l) %{A}
+}
+
+panel_battery()
+{
+        batStats=$(acpi --battery | cut -d' ' -f3 | sed 's/,//')
+	      batPerc=$(acpi --battery | cut -d' ' -f4 | sed 's/%,//')
+	
+	if [ "$batStats" == "Full" ]
+				then
+								echo %{A:dzen_bat:}$GREEN "" $DARKGREY$(acpi --battery | cut -d' ' -f4 | sed 's/%,//')"%" %{A}
+
+  elif [ "$batStats" == "Unkown" ]
+				then
+								echo %{A:dzen_bat:}$GREEN "" $DARKGREY$(acpi --battery | cut -d' ' -f4 | sed 's/%,//')"%%" %{A}
+	
+	elif [ "$batStats" == "Charging" ]
+        then
+                echo %{A:dzen_bat:}$GREEN "" $DARKGREY$(acpi --battery | cut -d' ' -f4 | sed 's/%,//')"%%" %{A}
+				
+	elif  [ "$batPerc" == 100 ]
+        then
+                echo %{A:dzen_bat:}$GREEN"" $DARKGREY$(acpi --battery | cut -d' ' -f4 | sed 's/%,//')"%%" %{A}
+
+  elif [ "$batPerc" -gt 64 ]
+        then
+                echo %{A:dzen_bat:}$GREEN "" $DARKGREY$(acpi --battery | cut -d' ' -f4 | sed 's/%,//')"%%" %{A}
+
+	elif [ "$batPerc" -lt 65 ] && [ "$batPerc" -gt 39 ]
+				then
+								echo %{A:dzen_bat:}$GREEN "" $DARKGREY$(acpi --battery | cut -d' ' -f4 | sed 's/%,//')"%%" %{A}
+					
+	elif [ "$batPerc" -lt 40 ]
+				then
+								echo %{A:dzen_bat:}$GREEN "" $DARKGREY$(acpi --battery | cut -d' ' -f4 | sed 's/%,//')"%%" %{A}
+        
+   fi
+}
+
+panel_clock()
+{
+	echo %{A:dzen_cal:}$GREEN $DARKGREY$(clock -f ' %B, %a %d - %H:%M')%{A}
+}
+
+
+todo_list()
+{
+ echo %{A:dzen_todo:}$BLUE 'TODO: '$(cat -n ~/bin/todo_list | wc -l)%{A}
+}
+
+space()
+{
+	echo $BG '.'
+}
+
+# Loop to check statuses
+while true; do
+	echo "S" ${panel_essid} $(panel_pacupdate) $(todo_list)$(space)$(panel_battery) $(panel_clock) > "$PANEL_FIFO" &
+	sleep 0.5s
+done &
+
+. panel_colors
+
+case "$flavor" in
+	bar)
+		#FONT_FAMILY2='-benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1'
+		FONT_FAMILY='-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1'
+		FONT_FAMILY2='-misc-stlarch-medium-r-normal--11-100-75-75-c-80-iso10646-1'
+		cat "$PANEL_FIFO" | panel_bar | bar -p -g 1366x12 -f "$FONT_FAMILY","$FONT_FAMILY2" -u 0 -F "$BG" -B "$BG" |\
+while read line; do
+	eval "$line";
+done &
+
+		;;
+esac
+
+wait

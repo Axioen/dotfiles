@@ -1,0 +1,10 @@
+#!/bin/bash
+LINES=$(cat ~/bin/todo_list | wc -l)
+LINES=$((LINES - 0.5))
+
+WIDTH=$(cat ~/bin/todo_list | wc -L)
+WIDTH=$((WIDTH + 160))
+
+(
+cat ~/bin/todo_list | dzen2 -fn lemon -x 1122 -y 0 -w $WIDTH -h 12 -l $LINES -sa l -p -e 'onstart=uncollapse,hide;button1=exit;' -fg "#909090" -bg "#0e1116" -tw 6
+)
