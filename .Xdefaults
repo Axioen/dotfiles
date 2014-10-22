@@ -20,7 +20,6 @@ URxvt*.color14:      #9DA69E
 URxvt*.color7:       #C2C2A8
 URxvt*.color15:      #DBDAC1
 
-
     URxvt*.background: #0e1116
     URxvt*.foreground: #a3a6ab
     URxvt*..colorUL: #95b9cc
@@ -49,17 +48,16 @@ URxvt*.color15:      #DBDAC1
   
 # --- URxvt*.Settings ---
 
-    URxvt*.internalBorder: 3
-    URxvt*.scrollBar: false
-    URxvt*.perl-ext-common: default,matcher
-    URxvt*.url-launcher: /usr/bin/firefox
-    URxvt*.matcher.button: 1
-#	  URxvt*.font: '-lucy-tewi-medium-r-normal-11-90-75-75-p-58-iso10646-1'
-    URxvt*.font: xft:Tewi:pixelsize=default:antialias=false,-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1
+     URxvt*.internalBorder: 3
+     URxvt*.scrollBar: false
+     URxvt*.perl-ext-common: default,matcher
+     URxvt*.url-launcher: /usr/bin/firefox
+     URxvt*.matcher.button: 1
+     URxvt*.font: xft:Tewi:pixelsize=default:antialias=false,-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1
 #   URxvt*.font: xft:Pragmata Pro:pixelsize=13:antialias=true
-    URxvt*.boldFont: xft:Tewi:pixelsize=default:antialias=false
+     URxvt*.boldFont: xft:Tewi:pixelsize=default:antialias=false
 #   URxvt*.boldFont: xft:Pragmata Pro:pixelsize=13:antialias=false
-#    URxvt*.letterSpace: -1
+#   URxvt*.letterSpace: -1
 
 # --- XFT Settings ---
 
@@ -68,5 +66,5 @@ URxvt*.color15:      #DBDAC1
 #		Xft.lcdfilter:  lcddefault
 #		Xft.hintstyle:  hintfull
 #		Xft.hinting: 1
-#      	  Xft.antialias: 1
+#     	  Xft.antialias: 1
 #		Xft.rgba: rgb
