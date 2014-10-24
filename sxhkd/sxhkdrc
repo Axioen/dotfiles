@@ -219,13 +219,3 @@ alt + shift + {minus,equal}
 
 alt + ctrl + {1-9}
 	bspc window -r 0.{1-9}
-
-#
-# Run shit
-#
-
-alt + shift + d
-	bspc create_frame
-
-alt + shift + Return
-	bspc rule -a urxvt -o pseudo_tiled=on
